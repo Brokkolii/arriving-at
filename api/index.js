@@ -1,10 +1,17 @@
 const axios = require("axios");
 const xml2js = require("xml2js");
 const express = require("express");
+const cors = require("cors");
 
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 3000;
+
+const corsOptions = {
+  origin: "*", // Replace with your allowed origin(s)
+};
+
+app.use(cors(corsOptions));
 
 const client_id = process.env.DB_CLIENT_ID;
 const secret = process.env.DB_SECRET;
